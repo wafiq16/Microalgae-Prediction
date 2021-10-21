@@ -5,3 +5,4 @@ pip install matplotlib
 pip install graphviz
 pip install Ipython
 pip install ipywidgets
+pip install pyserial
