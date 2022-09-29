@@ -1,0 +1,74 @@
+================= PEMBUKAAN ======================
+
+Assalamualaikum Wr. Wb. Good Morning, I would like to say thank you for coming to my presentation. 
+Let me introduce myself. My name is Muhammad Wafiq Kamaluddin, and i am from Computer Engineering Major number 42.
+The purpose of the presentation is to present my final project entitled "Prediksi Bioorganisme pada Tambak Udang Berbasis Neural Network"
+with first supervisor Dr. Setiawardhana, the second supervisor is Dr. Eng. Bima Sena Bayu, and the third supervisor is Dr. Eng Agus Indra
+
+================= Slide 1 ========================
+Outline
+
+Baca aja outlinenya
+
+================= Slide 2 ========================
+                    Sampai                          
+================= Slide alat ================
+Aman
+
+
+================= Slide data =====================
+before entering into testing on algae, the tool must be confirmed whether it can work properly or not. the first test is to use water
+
+================= Slide Air ======================
+It can be seen on the graphic image of the microscope and RGB sensor where the values ​​of the red, green and blue channels have almost the same value. 
+from here it can be considered that the tool has been calibrated properly. for the results of the webcam image itself is dominated by red and green. 
+The blue color itself is less visible because there are still deficiencies in the formation of the rainbow so that cyan and blue are narrower than green and red
+
+
+================= Slide Pewarna Tunggal ==========
+as in the graph, the RGB value of the red dye will increase as the dye concentration increases. as well as green and blue dyes. but 
+in the blue dye, in addition to the high value of the blue channel, the green channel also has a high value as well. The problem starts here.
+
+================= Slide 2 Pewarna Campuran =========
+
+=============== Merah Hijau ========================
+in a mixture of red and green dyes, the results on the microscope camera are quite good, but there is an oddity that the value should continue to 
+decrease until the concentration is equal to 0. However, the value of the green channel remains until the concentration is equal to 0. This also 
+applies to the results obtained from the image of the rainbow. for the sensor reading, the pattern from the graph is in accordance with the 
+concentration and channel value
+
+=============== Merah Biru =========================
+Likewise, in the mixture of red and blue dyes, the results are similar to the previous mixture
+
+=============== Biru Hijau =========================
+in the mixture of green and blue dyes, the pattern for the blue channel is good until except at a concentration of 60 which is odd. 
+Strange results were also found in the response of the rainbow image that did not match the supposed trend. the results on the sensor 
+readings show consistent results although there is a slight loss of trend at the concentration of 100 green dye
+
+================= Slide 3 Pewarna Campuran =========
+The following is a composition table that was tried, but due to time constraints, only 2 mixed data will be shown
+
+================= Campuran 1 =======================
+in this mixture, the greatest concentration is blue, but the resulting color is green. This result makes the graph of 
+the histogram and sensor values ​​not in accordance with the concentration that has been set
+
+================= Campuran 2 =======================
+in this mixture, the greatest concentration is blue, but the resulting color is green. This result makes the graph of 
+the histogram and sensor values ​​not in accordance with the concentration that has been set
+
+================= ANN ==============================
+
+================= Model 1 ==========================
+
+in the modeling process using dnn, we tried 2 models and compared the error rates for each model. the first model with 
+the following parameters ............ then the average error result from all data and all classes is .........
+
+================= Model 2 ==========================
+in the modeling process using dnn, we tried 2 models and compared the error rates for each model. the second model with 
+the following parameters ............ then the average error result from all data and all classes is .........
+
+=============== Conclusion =========================
+tinggal baca aja
+
+=============== Penutup ============================
+Thank you so much for your attention, Wassalamualaikum Warahmatullahi Wabarakatuh

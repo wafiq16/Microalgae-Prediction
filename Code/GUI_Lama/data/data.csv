@@ -1,0 +1,6 @@
+R_mean_cam,G_mean_cam,B_mean_cam,R_max_cam,G_max_cam,B_max_cam,R_mean_mic,G_mean_mic,B_mean_mic,R_max_mic,G_max_mic,B_max_mic,class,concentration
+242,243,242,255,255,255,171,188,171,170,201,198,null,null
+245,245,245,255,255,255,181,195,181,207,223,222,null,null
+238,239,238,255,255,255,174,191,174,170,201,198,null,null
+238,239,238,255,255,255,174,191,174,170,201,198,null,null
+248,248,248,255,255,255,176,193,176,170,201,198,null,null

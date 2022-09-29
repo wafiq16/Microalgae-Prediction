@@ -1,0 +1,173 @@
+from keras.models import Sequential
+from keras.layers import Dense, LSTM
+from numpy import array
+from numpy.random import uniform
+from numpy import hstack
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+from pandas import read_csv
+
+
+def create_data(n):
+    x1 = array([i/100+uniform(-1, 3) for i in range(n)]).reshape(n, 1)
+    x2 = array([i/100+uniform(-3, 5)+2 for i in range(n)]).reshape(n, 1)
+    x3 = array([i/100+uniform(-6, 5)-3 for i in range(n)]).reshape(n, 1)
+
+    y1 = [x1[i]-x2[i]+x3[i]+uniform(-2, 2) for i in range(n)]
+    y2 = [x1[i]+x2[i]-x3[i]+5+uniform(-1, 3) for i in range(n)]
+    X = hstack((x1, x2, x3))
+    Y = hstack((y1, y2))
+    return X, Y
+
+
+path = 'Pewarna_Satuan_Sensor.csv'
+df = read_csv(path, header=None)
+# split into input and output columns
+x, y = df.values[:, :-3], df.values[:, -3:]
+x, y = x.astype('float'), y.astype('float')
+# print(x.shape[:2])
+# print(y.shape[:2])
+# plt.plot(y)
+# plt.show()
+
+print(x.shape)
+
+x = x.reshape(x.shape[0], x.shape[1], 1)
+print("x:", x.shape, "y:", y.shape)
+
+in_dim = (x.shape[1], x.shape[2])
+out_dim = y.shape[1]
+print(in_dim)
+print(out_dim)
+
+xtrain, xtest, ytrain, ytest = train_test_split(
+    x, y, test_size=0.4)
+print("xtrain:", xtrain.shape, "ytrian:", ytrain.shape)
+
+# 300
+# out
+
+model = Sequential()
+model.add(LSTM(72, input_shape=in_dim, activation="relu"))
+# model.add(LSTM(64))
+model.add(Dense(out_dim))
+model.compile(loss="mse", optimizer="adam")
+model.summary()
+
+model.fit(xtrain, ytrain, validation_data=(xtest, ytest),
+          epochs=200, batch_size=12, verbose=1)
+
+ypred = model.predict(xtest)
+print("y1 MSE:%.4f" % mean_squared_error(ytest[:, 0], ypred[:, 0]))
+print("y2 MSE:%.4f" % mean_squared_error(ytest[:, 1], ypred[:, 1]))
+
+x_ax = range(len(xtest))
+plt.title("LSTM multi-output prediction")
+plt.scatter(x_ax, ytest[:, 0],  s=6, label="y1-test")
+plt.plot(x_ax, ypred[:, 0], label="y1-pred")
+plt.scatter(x_ax, ytest[:, 1],  s=6, label="y2-test")
+plt.plot(x_ax, ypred[:, 1], label="y2-pred")
+plt.legend()
+plt.show()
+
+
+path = 'Sensor_test.csv'
+df = read_csv(path, header=None)
+# split into input and output columns
+row, inpt = df.values[:, :-3].tolist(), df.values[:, -3:].tolist()
+
+# inpt = [
+#     [0, 0, 0],
+#     [0, 0, 100],
+#     [100, 0, 0],
+#     [0, 100, 0],
+#     [20, 80, 0],
+#     [40, 60, 0],
+#     [60, 40, 0],
+#     [80, 20, 0],
+#     [0, 20, 80],
+#     [0, 40, 60],
+#     [0, 60, 40],
+#     [0, 80, 20],
+#     [20, 0, 80],
+#     [40, 0, 60],
+#     [60, 0, 40],
+#     [80, 0, 20],
+#     [20, 60, 20],
+#     [20, 40, 40],
+#     [20, 20, 60],
+#     [40, 40, 20],
+#     [40, 20, 40],
+#     [60, 20, 20],
+#     [33.3, 33.3, 33.3],
+#     [10, 0, 0],
+#     [20, 0, 0],
+#     [50, 0, 0],
+#     [0, 10,	0],
+#     [0, 20,	0],
+#     [0, 50,	0],
+#     [0, 0, 10],
+#     [0, 0, 20],
+#     [0, 0, 50]
+# ]
+
+# row = [
+#     [202, 208, 205, 206, 209, 209, 99, 93, 77, 99, 93, 77, 87, 85, 87],
+#     [0, 214, 231, 0, 224, 232, 52, 77, 53, 52, 77, 53, 38, 112, 112],
+#     [254, 138, 101, 255, 143, 103, 92, 65, 46, 92, 65, 46, 134, 44, 81],
+#     [0, 246, 65, 0, 248, 66, 51, 73, 33, 51, 73, 33, 64, 116, 72],
+#     [22, 227, 65, 24, 235, 69, 86, 91, 51, 86, 91, 51, 72, 106, 81],
+#     [92, 140, 41, 92, 140, 41, 104, 100, 61, 104, 100, 61, 85, 89, 81],
+#     [245, 195, 97, 255, 202, 103, 105, 97, 60, 105, 97, 60, 90, 82, 86],
+#     [254, 135, 89, 255, 143, 88, 109, 97, 63, 109, 97, 63, 98, 78, 86],
+#     [0, 244, 164, 0, 250, 168, 71, 110, 64, 71, 110, 64, 48, 114, 98],
+#     [0, 244, 106, 0, 251, 111, 79, 109, 62, 79, 109, 62, 49, 119, 90],
+#     [0, 248, 146, 0, 255, 177, 76, 108, 61, 76, 108, 61, 50, 120, 89],
+#     [0, 241, 100, 0, 255, 125, 81, 110, 61, 81, 110, 61, 56, 121, 81],
+#     [0, 167, 253, 0, 186, 255, 85, 103, 70, 85, 103, 70, 46, 97, 115],
+#     [52, 141, 253, 66, 171, 255, 101, 101, 70, 101, 101, 70, 69, 80, 109],
+#     [56, 114, 251, 69, 130, 255, 103, 99, 70, 103, 99, 70, 75, 79, 109],
+#     [251, 132, 253, 255, 147, 255, 117, 102, 76, 117, 102, 76, 96, 64, 99],
+#     [0, 188, 60, 0, 214, 72, 109, 119, 85, 109, 119, 85, 69, 107, 83],
+#     [0, 172, 105, 0, 174, 105, 86, 103, 66, 86, 103, 66, 58, 103, 98],
+#     [0, 147, 115, 0, 176, 137, 87, 105, 63, 87, 105, 63, 59, 102, 98],
+#     [0, 153, 75, 0, 166, 84, 95, 103, 62, 95, 103, 62, 75, 94, 90],
+#     [0, 133, 132, 0, 133, 136, 83, 99, 60, 83, 99, 60, 62, 98, 98],
+#     [108, 112, 110, 118, 123, 121, 99, 99, 61, 99, 99, 61, 86, 82, 91],
+#     [28, 141, 156, 34, 150, 167, 91, 96, 60, 91, 96, 60, 76, 89, 93],
+#     [254, 108, 164, 255, 112, 173, 142, 134, 111, 145, 178, 87, 100, 74, 87],
+#     [254, 131, 218, 255, 136, 233, 142, 128, 104, 147, 171, 87, 103, 72, 83],
+#     [254, 130, 229, 255, 132, 228, 139, 122, 102, 148, 158, 89, 109, 63, 87],
+#     [60, 190, 100, 65, 187, 106, 117, 124, 89, 127, 169, 63, 80, 95, 76],
+#     [95, 215, 129, 95, 218, 132, 118, 124, 89, 128, 170, 61, 88, 90, 82],
+#     [0, 249, 111, 0, 255, 119, 81, 112, 60, 92, 156, 31, 69, 112, 77],
+#     [0, 237, 252, 0, 255, 255, 83, 106, 80, 93, 149, 47, 51, 100, 106],
+#     [0, 181, 236, 0, 204, 255, 79, 107, 79, 78, 149, 39, 53, 103, 106],
+#     [0, 157, 244, 0, 161, 255, 62, 97, 75, 73, 141, 43, 36, 111, 111],
+# ]
+y = 0
+sum_err = 0
+for i in row:
+    yhat = model.predict([i])
+    print("input " + str(y) + " = " + str(inpt[y]))
+    # print()
+    print("hasil " + " = " + str(yhat[0]))
+    # print()
+
+    err_R = abs(yhat[0][0] - inpt[y][0])
+    err_G = abs(yhat[0][1] - inpt[y][1])
+    err_B = abs(yhat[0][2] - inpt[y][2])
+    mean_err = (err_R + err_G + err_B)/3
+    r = [inpt[y][0], inpt[y][1], inpt[y][2],
+         yhat[0][0], yhat[0][1], yhat[0][2], err_R, err_G, err_B, mean_err]
+    # print(r)
+    # print(mean_err)
+    # with open('paper.csv', 'a', newline='') as outfile:
+    # writer = csv.writer(outfile)
+    # writer = csv.writer(f)
+    # writer_reg = csv.writer(outfile)
+    # writer_reg.writerow(r)
+    y += 1
+    sum_err += mean_err
+    print(sum_err/y)

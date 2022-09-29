@@ -6,7 +6,7 @@
    height="297mm"
    viewBox="0 0 210 297"
    version="1.1"
-   id="svg23126"
+   id="svg2147"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    sodipodi:docname="Microscope Holder.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -14,7 +14,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview23128"
+     id="namedview2149"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.47215208"
-     inkscape:cx="397.11781"
-     inkscape:cy="562.31882"
+     inkscape:zoom="0.36440298"
+     inkscape:cx="-1173.1518"
+     inkscape:cy="698.40263"
      inkscape:window-width="1366"
      inkscape:window-height="715"
      inkscape:window-x="-8"
@@ -33,9 +33,48 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
-     id="defs23123" />
+     id="defs2144" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1" />
+     id="layer1">
+    <path
+       id="rect1466"
+       style="fill:none;stroke:#000000;stroke-width:0.907151;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -1521.6055 787.73242 L -1521.6055 863.06055 L -1510.5293 863.06055 L -1510.5293 945.81445 L -1521.6055 945.81445 L -1521.6055 1032.4941 L -1427.1172 1032.4941 L -1427.1172 891.52734 A 27.881762 27.881762 0 0 1 -1427.1309 891.35352 A 27.881762 27.881762 0 0 1 -1427.1172 891.17969 L -1427.1172 889.80664 L -1427.0098 889.80664 A 27.881762 27.881762 0 0 1 -1399.25 863.47266 A 27.881762 27.881762 0 0 1 -1371.4141 889.80664 L -1371.3574 889.80664 L -1371.3574 1032.4941 L -1276.8438 1032.4941 L -1276.8438 945.81445 L -1287.9199 945.81445 L -1287.9199 863.06055 L -1276.8438 863.06055 L -1276.8438 787.73242 L -1351.9082 787.73242 L -1351.9082 798.80859 L -1446.0137 798.80859 L -1446.0137 787.73242 L -1521.6055 787.73242 z "
+       transform="scale(0.26458333)" />
+    <path
+       id="rect1468"
+       style="fill:none;stroke:#000000;stroke-width:0.249326;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m -400.0876,44.509824 v 49.89101 h -2.89078 V 144.5094 h 2.89078 v 49.89102 h -2.89078 v 6.92929 h 20.09439 v 2.93057 h 24.75042 v -2.93006 h 19.90574 v -7.03884 h -2.89076 v -49.8905 h 2.89076 V 94.400834 h -2.89076 v -49.89101 z" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.249326;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect2276"
+       width="64.750671"
+       height="159.75067"
+       x="-402.58224"
+       y="283.48315" />
+    <path
+       id="rect121"
+       style="fill:none;stroke:#000000;stroke-width:0.249302"
+       d="m -565.86958,208.50402 v 61.75075 h 156.97388 v -20.14812 h 2.77659 v -21.56458 h -2.76987 v -17.03771 h -7.19955 v -3.00034 h -49.78146 v 3.00034 h -50.00006 v -3.00034 z" />
+    <path
+       id="path801"
+       style="fill:none;stroke:#000000;stroke-width:0.249302"
+       d="m -167.37859,207.12464 v 61.75075 h -156.97388 v -20.14812 h -2.77659 v -21.56458 h 2.76987 v -17.03771 h 7.19955 v -3.00034 h 49.78146 v 3.00034 h 50.00006 v -3.00034 z" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.708252"
+       id="rect39"
+       width="3.291748"
+       height="146.29175"
+       x="-387.08786"
+       y="47.510124" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.708252"
+       id="rect122"
+       width="3.291748"
+       height="146.29175"
+       x="-357.40988"
+       y="47.510124" />
+  </g>
 </svg>

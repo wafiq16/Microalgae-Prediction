@@ -1,0 +1,2 @@
+myStatus = "Power 1 = (" + strArus1 + " V " + strTegangan1 + " A) " + "\n" "Power 2 = (" + strArus2 + " V " + strTegangan2 + " A) " + "\n" + "Power 3 = (" + strArus3 + " V " + strTegangan3 + " A) " + "\n" + "Power 4 = (" + strArus4 + " V " + strTegangan4 + " A) " + "\n" + "Power 5 = (" + strArus5 + " V " + strTegangan5 + " A) " + "\n" ;
+  
